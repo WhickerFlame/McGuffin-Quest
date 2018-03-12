@@ -53,7 +53,7 @@ public class Soveliss : MonoBehaviour
         //set the x (left/right/a/d) components of the velocty bsed on our input
         velocity.x = horizontal * speed;
         
-        //Determin the speed fr the animator
+        //Determin the speed for the animator
         float animatorSpeed = Mathf.Abs(velocity.x);
        
         //get the animator component off of our game object
@@ -61,6 +61,12 @@ public class Soveliss : MonoBehaviour
        
         //Set the speed of the Animator
         animatorComponent.SetFloat("Speed", animatorSpeed);
+
+        //Get the sprite compnent from our object
+        SpriteRenderer spriteComponent = GetComponent<SpriteRenderer>();
+
+        //set flib based on x velocity
+        spriteComponent.flipX = (velocity.x < 0); //This will turn true or false
 
 
         //set the y (up/down) component of the velocity based on jump
