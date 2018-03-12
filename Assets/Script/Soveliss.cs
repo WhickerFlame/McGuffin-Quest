@@ -4,10 +4,10 @@ using System.Collections;
 public class Soveliss : MonoBehaviour
 {
     public string logtext = "Hello world again";
-    public float speed = 2;
-    public float jumpspeed = 2;
+    public float speed = 4;
+    public float jumpspeed = 4;
     public float health = 100;
-    public int allowedAirJumps = 0;
+    public int allowedAirJumps = 1;
 
     private int numAirJumps = 0;
 
@@ -52,6 +52,17 @@ public class Soveliss : MonoBehaviour
 
         //set the x (left/right/a/d) components of the velocty bsed on our input
         velocity.x = horizontal * speed;
+        
+        //Determin the speed fr the animator
+        float animatorSpeed = Mathf.Abs(velocity.x);
+       
+        //get the animator component off of our game object
+        Animator animatorComponent = GetComponent<Animator>();
+       
+        //Set the speed of the Animator
+        animatorComponent.SetFloat("Speed", animatorSpeed);
+
+
         //set the y (up/down) component of the velocity based on jump
         if (jump == true && allowedToJump == true)
         {
