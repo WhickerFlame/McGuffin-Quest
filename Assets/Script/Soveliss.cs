@@ -15,9 +15,6 @@ public class Soveliss : MonoBehaviour
     void Start()
     {
         Debug.Log(logtext);
-        Debug.Log("Hey world");
-        Debug.Log("Ola world");
-        Debug.Log("Sup world");
         Debug.Log("Konnichiwa world");
 
     }

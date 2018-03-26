@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Mario-Fire
+  m_Controller: {fileID: 9100000, guid: be08efd50a9094304b21308d39372b2f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7bf6aebecb30f4212ad2804e1e393767, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d4798b332c0634babbe3084d9f4b164c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e121e76c0b9964f83b346e815a4be3f7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0120d5d7b25e54a4090c94bd98add501, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fd2762154cbed4429a14f74df91a0090, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bf50e8de167364f59921c2788b61fa40, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7f7ed6aac9e264ee2a1760d9100aa1a4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 631108c189de948ab8395fe1783ce795, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 973bccda27f474bfabaa45b538ce6b18, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ec96f726fb6c45f59d26e67be289ac7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ea1e91b1070a04e25aaf6ab59edeba1a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ac5cf89b6141e4ed9aedfc0c2d08ecaf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f84811d18066f4a929504074d572101f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 70c134b7c4ca5425a952910eab85a450, type: 2}
