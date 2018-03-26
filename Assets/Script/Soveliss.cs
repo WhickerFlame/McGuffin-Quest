@@ -44,17 +44,31 @@ public class Soveliss : MonoBehaviour
         {
             allowedToJump = true;
         }
-        //caache a local copy of or rigidbody's velocity
+
+        //Get weather crouching
+        bool crouch = Input.GetButton("crouch");
+
+        //get the animator component off of our game object
+        Animator animatorComponent = GetComponent<Animator>();
+        animatorComponent.SetBool("Crouch", crouch);
+            
+            //caache a local copy of or rigidbody's velocity
         Vector2 velocity = rigidbody.velocity;
 
         //set the x (left/right/a/d) components of the velocty bsed on our input
-        velocity.x = horizontal * speed;
+        if (crouch == false)
+        {
+            velocity.x = horizontal * speed;
+        }
+
+        if (crouch == true)
+        {
+            velocity.x = 0;
+        }
         
         //Determin the speed for the animator
         float animatorSpeed = Mathf.Abs(velocity.x);
        
-        //get the animator component off of our game object
-        Animator animatorComponent = GetComponent<Animator>();
        
         //Set the speed of the Animator
         animatorComponent.SetFloat("Speed", animatorSpeed);
@@ -63,7 +77,10 @@ public class Soveliss : MonoBehaviour
         SpriteRenderer spriteComponent = GetComponent<SpriteRenderer>();
 
         //set flib based on x velocity
-        spriteComponent.flipX = (velocity.x < 0); //This will turn true or false
+        if (Mathf.Abs(velocity.x) > 0)
+        {
+            spriteComponent.flipX = (velocity.x < 0); //This will turn true or false
+        }
 
 
         //set the y (up/down) component of the velocity based on jump
