@@ -51,8 +51,8 @@ public class Soveliss : MonoBehaviour
         //get the animator component off of our game object
         Animator animatorComponent = GetComponent<Animator>();
         animatorComponent.SetBool("Crouch", crouch);
-            
-            //caache a local copy of or rigidbody's velocity
+        animatorComponent.SetBool("Touching ground", touchingGround);
+        //caache a local copy of or rigidbody's velocity
         Vector2 velocity = rigidbody.velocity;
 
         //set the x (left/right/a/d) components of the velocty bsed on our input
