@@ -30,6 +30,7 @@ public class DamageOnTouch : MonoBehaviour {
 	public float m_damage = 10;
 	[Tooltip("The target type of the health pool must match this type in order to deal damage")]
 	public string m_targetType = "player";
+    public bool deathOnDealDamage = false;
 	#endregion
 	// *****************************************************************************************************************
 
@@ -43,9 +44,14 @@ public class DamageOnTouch : MonoBehaviour {
 		// Check if the other collider that we hit has a HealthPool on it
 		HealthPool healthPool = _other.GetComponent<HealthPool>();
 		if (healthPool != null) {
-			// Apply damage to the health pool
-			healthPool.Damage(m_damage, m_targetType);
-		}
+            // Apply damage to the health pool
+            bool damaged = healthPool.Damage(m_damage, m_targetType);
+
+            if (damaged && deathOnDealDamage)
+            {
+                Destroy(gameObject);
+            }
+        }
 	}
 	// *****************************************************************************************************************
     // When a collision interaction starts involving this game object...
@@ -56,7 +62,12 @@ public class DamageOnTouch : MonoBehaviour {
         if (healthPool != null)
         {
             // Apply damage to the health pool
-            healthPool.Damage(m_damage, m_targetType);
+            bool damaged = healthPool.Damage(m_damage, m_targetType);
+
+            if (damaged && deathOnDealDamage)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     // *****************************************************************************************************************

@@ -6,7 +6,6 @@ public class Soveliss : MonoBehaviour
     public string logtext = "Hello world again";
     public float speed = 4;
     public float jumpspeed = 4;
-    public float health = 100;
     public int allowedAirJumps = 1;
 
     private int numAirJumps = 0;
@@ -87,12 +86,16 @@ public class Soveliss : MonoBehaviour
         if (jump == true && allowedToJump == true)
         {
             velocity.y = jumpspeed;
-            if(touchingGround != true)
+            if (touchingGround != true)
             {
                 numAirJumps = numAirJumps + 1;
 
             }
         }
+
+        bool movingUp = velocity.y > 0;
+        animatorComponent.SetBool("Jump", movingUp);
+
         //set our ridgedbody's velocity based on our local copy
         rigidbody.velocity = velocity;
 
@@ -107,9 +110,5 @@ public class Soveliss : MonoBehaviour
         }
 
 
-    }
-    public void ApplyDeath(float DammageDealt)
-    {
-        health = health - DammageDealt;
     }
 }
